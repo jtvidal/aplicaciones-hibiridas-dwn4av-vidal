@@ -2,11 +2,12 @@
   "name": "desafio-2",
   "version": "1.0.0",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vidal Javier",
   "license": "ISC",
-  "description": ""
+  "description": "Desafío 2 - Aplicaciones Híbridas - DWN4AV- Da Vinci"
 }
