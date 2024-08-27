@@ -2,7 +2,7 @@ async function taskOne(url) {
   try {
     const data = await fetch(url);
     if (data.ok) {
-      const dataJson = await data.json();
+      const dataJson =  await data.json();
       console.log("data retrieved ok: ", dataJson);
     } else {
       throw new Error(data.status);
@@ -20,6 +20,6 @@ function taskTwo() {
 
 taskTwo();
 
-taskOne("https://dragonball-api.com/api/characters?page=2&limit=1");
+await taskOne("https://dragonball-api.com/api/characters?page=2&limit=1");
 
 console.log("Servidor funcionando");
