@@ -20,11 +20,7 @@ function validatePrimeNumber(num) {
       return true;
     }
   } catch (error) {
-    console.log(
-      "%cError in validatePrimeNumber: ",
-      "color:white , background-color:red",
-      error.message
-    );
+    console.log("Error in validatePrimeNumber: ",error.message);
   }
 }
 
