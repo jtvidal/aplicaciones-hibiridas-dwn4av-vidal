@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { validatePrimeNumber } from "./exports.cjs";
 
 let number = 2;
