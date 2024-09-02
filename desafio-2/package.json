@@ -10,5 +10,8 @@
   "keywords": [],
   "author": "Vidal Javier",
   "license": "ISC",
-  "description": "Desafío 2 - Aplicaciones Híbridas - DWN4AV- Da Vinci"
+  "description": "Desafío 2 - Aplicaciones Híbridas - DWN4AV- Da Vinci",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
 }
