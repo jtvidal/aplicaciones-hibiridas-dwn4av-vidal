@@ -13,9 +13,9 @@ const server = http.createServer((req, res) => {
         
     case '/info':
         res.writeHead(200,'text/plain')
-        res.end(`Datos del sistema:
+        res.end(`Datos del sistema:\n
              Arquitectura: ${os.arch}\n
-             Hostname: ${os.hostname}`);
+             CPUS: ${JSON.stringify(os.cpus())}\n`);
   }
 });
 
