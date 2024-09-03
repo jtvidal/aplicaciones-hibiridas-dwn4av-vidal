@@ -6,10 +6,11 @@ import fs from "fs/promises";
 const server = http.createServer(async (req, res) => {
   console.log("url: ", req.url);
   console.log("method: ", req.method);
+
   switch (req.url) {
     case "/alumno":
       res.writeHead(200, { "Content-Type": "text/plain" });
-      res.end("Vidal Javier");
+      res.end("Vidal Javier - DWN4AV");
       break;
 
     case "/info":
@@ -18,16 +19,15 @@ const server = http.createServer(async (req, res) => {
              Arquitectura: ${os.arch}\n
              CPUS: ${JSON.stringify(os.cpus())}\n`);
       break;
+
     case "/static":
       try {
         res.writeHead(200, { "Content-Type": "text/html" });
         const data = await fs.readFile("index.html", "utf-8");
-        res.end(data);
+        res.end(await data);
       } catch (error) {
         console.error("Error getting file: ", error.message);
       }
-      break;
-      default :
       break;
   }
 });
