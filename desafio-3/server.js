@@ -20,11 +20,11 @@ const server = http.createServer(async (req, res) => {
              CPUS: ${JSON.stringify(os.cpus())}\n`);
       break;
 
-    case "/static":
+    case "/":
       try {
         res.writeHead(200, { "Content-Type": "text/html" });
         const data = await fs.readFile("index.html", "utf-8");
-        res.end(await data);
+        res.end(data);
       } catch (error) {
         console.error("Error getting file: ", error.message);
       }
@@ -33,5 +33,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(process.env.PORT, () => {
-  console.log(`server port: ${process.env.PORT}`);
+  console.log(`server hosted at: http://localhost:${process.env.PORT}`);
 });
