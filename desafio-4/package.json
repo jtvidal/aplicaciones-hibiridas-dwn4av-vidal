@@ -1,0 +1,19 @@
+{
+  "name": "desafio-4",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Vidal Javier",
+  "license": "ISC",
+  "description": "Desafío 4 - Aplicaciones Híbridas - Da Vinci - DWN4AV",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.20.0",
+    "nodemon": "^3.1.4"
+  }
+}
