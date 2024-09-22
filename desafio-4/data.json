@@ -1,0 +1,56 @@
+{
+  "movies": [
+    {
+      "year": "1994",
+      "title": "Pulp Fiction",
+      "director": "Quentin Tarantino",
+      "photographyDirector": "Robert Richardson",
+      "country": "USA",
+      "actors": "John Travolta, Uma Thurman, Samuel L. Jackson"
+    },
+    {
+      "year": "1999",
+      "title": "The Matrix",
+      "director": "Lana Wachowski, Lilly Wachowski",
+      "photographyDirector": "Bill Pope",
+      "country": "USA",
+      "actors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss"
+    },
+    {
+      "year": "2008",
+      "title": "The Dark Knight",
+      "director": "Christopher Nolan",
+      "photographyDirector": "Wally Pfister",
+      "country": "USA",
+      "actors": "Christian Bale, Heath Ledger, Aaron Eckhart"
+    },
+    {
+      "year": "2010",
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "photographyDirector": "Wally Pfister",
+      "country": "USA",
+      "actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page"
+    },
+    {
+      "year": "2014",
+      "title": "Interstellar",
+      "director": "Christopher Nolan",
+      "photographyDirector": "Hoyte van Hoytema",
+      "country": "USA",
+      "actors": "Matthew McConaughey, Anne Hathaway, Jessica Chastain"
+    }
+  ],
+  "products": [
+    { "id": 1, "nombre": "Pulp Fiction T-Shirt", "precio": 7999 },
+    { "id": 2, "nombre": "The Matrix Poster", "precio": 5199 },
+    { "id": 3, "nombre": "Inception Soundtrack Vinyl", "precio": 9999 },
+    { "id": 4, "nombre": "Interstellar Blu-ray", "precio": 5999 },
+    { "id": 5, "nombre": "The Dark Knight Action Figure", "precio": 11999 },
+    { "id": 6, "nombre": "Pulp Fiction Mug", "precio": 3999 },
+    { "id": 7, "nombre": "The Matrix Neo Sunglasses", "precio": 19999 },
+    { "id": 8, "nombre": "Inception Totem Replica", "precio": 6399 },
+    { "id": 9, "nombre": "Interstellar T-Shirt", "precio": 7999 },
+    { "id": 10, "nombre": "The Dark Knight Joker Poster", "precio": 5199 }
+  ]
+}
