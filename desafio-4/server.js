@@ -3,6 +3,7 @@ import "dotenv/config";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { type } from "os";
 
 const server = express();
 server.use(express.json());
@@ -13,6 +14,20 @@ server.use(express.json());
 // const dataURl = path.join(__dirname, "./data.json");
 const data = JSON.parse(fs.readFileSync("./data.json", "utf-8"));
 
+/**
+ * Recieves a value and validates its of type number.
+ * Returns Error
+ * @param  n
+ * @param {Response} response
+ * @returns {Error}
+ */
+export function validateNumber(n, response) {
+  if (isNaN(parseInt(n))) {
+    response.status(400).send("Error: query value must be a number");
+    return false;
+  }
+  return true;
+}
 server.get("/", (req, res) => {
   res.status(200).send("Javier Vidal");
 });
@@ -45,29 +60,20 @@ server.get("/peliculas/:title", (req, res) => {
 // PRODUCTOS
 server.get("/productos", (req, res) => {
   const { max, min } = req.query;
-
   if (!max && !min) {
     console.log("query: ", req.query);
-
-    return res.status(200).json(data.products);
+    res.status(200).json(data.products);
   }
   if (!max) {
-    console.log(typeof parseInt(min));
-    if (typeof parseInt(min) !== "number") {
-      return res
-        .status(400)
-        .send(`Error: min query must be a number ${typeof parseInt(min)}`);
-    }
+    console.log(isNaN(parseInt(min)));
+    if (!validateNumber(min, res)) return;
     const minPrice = data.products.filter((p) => p.precio >= parseInt(min));
     console.log(minPrice);
-
-    return res.status(200).json(minPrice);
+    res.status(200).json(minPrice);
   } else {
-    if (typeof parseInt(max) != "number") {
-      return res.status(400).send("Error: max query must be a number");
-    }
+    if (!validateNumber(max, res)) return;
     const maxPrice = data.products.filter((p) => p.precio <= parseInt(max));
-    return res.status(200).json(maxPrice);
+    res.status(200).json(maxPrice);
   }
 });
 
