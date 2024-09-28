@@ -61,12 +61,10 @@ server.get("/peliculas/:title", (req, res) => {
 server.get("/productos", (req, res) => {
   const { max, min } = req.query;
   if (!max && !min) {
-    console.log("query: ", req.query);
     res.status(200).json(data.products);
     return;
   }
   if (!max && min) {
-    console.log(isNaN(parseInt(min)));
     if (!validateNumber(min, res)) return;
     const minPrice = data.products.filter((p) => p.precio >= parseInt(min));
     console.log(minPrice);
@@ -76,7 +74,6 @@ server.get("/productos", (req, res) => {
     const maxPrice = data.products.filter((p) => p.precio <= parseInt(max));
     res.status(200).json(maxPrice);
   } else {
-    console.log("maxmin");
     const maxMin = data.products.filter(
       (p) => p.precio >= parseInt(min) && p.precio <= parseInt(max)
     );
