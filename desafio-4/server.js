@@ -63,17 +63,24 @@ server.get("/productos", (req, res) => {
   if (!max && !min) {
     console.log("query: ", req.query);
     res.status(200).json(data.products);
+    return;
   }
-  if (!max) {
+  if (!max && min) {
     console.log(isNaN(parseInt(min)));
     if (!validateNumber(min, res)) return;
     const minPrice = data.products.filter((p) => p.precio >= parseInt(min));
     console.log(minPrice);
     res.status(200).json(minPrice);
-  } else {
+  } else if (max && !min) {
     if (!validateNumber(max, res)) return;
     const maxPrice = data.products.filter((p) => p.precio <= parseInt(max));
     res.status(200).json(maxPrice);
+  } else {
+    console.log("maxmin");
+    const maxMin = data.products.filter(
+      (p) => p.precio >= parseInt(min) && p.precio <= parseInt(max)
+    );
+    res.status(200).json(maxMin);
   }
 });
 
