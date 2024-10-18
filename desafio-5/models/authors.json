@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Gabriel García Márquez",
+    "nationality": "Colombiano",
+    "birth_year": 1927,
+    "notable_work": "Cien años de soledad"
+  },
+  {
+    "name": "George Orwell",
+    "nationality": "Británico",
+    "birth_year": 1903,
+    "notable_work": "1984"
+  },
+  {
+    "name": "Jane Austen",
+    "nationality": "Británica",
+    "birth_year": 1775,
+    "notable_work": "Orgullo y prejuicio"
+  },
+  {
+    "name": "F. Scott Fitzgerald",
+    "nationality": "Estadounidense",
+    "birth_year": 1896,
+    "notable_work": "El gran Gatsby"
+  }
+]
