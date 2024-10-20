@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "Carlos González",
+    "email": "carlos.gonzalez@example.com",
+    "password": "password123"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana Martínez",
+    "email": "ana.martinez@example.com",
+    "password": "securePass456"
+  },
+  {
+    "id": 3,
+    "nombre": "Luis Pérez",
+    "email": "luis.perez@example.com",
+    "password": "myPassword789"
+  },
+  {
+    "id": 4,
+    "nombre": "María Rodríguez",
+    "email": "maria.rodriguez@example.com",
+    "password": "password321"
+  },
+  {
+    "id": 5,
+    "nombre": "Juan López",
+    "email": "juan.lopez@example.com",
+    "password": "strongPass654"
+  }
+]
