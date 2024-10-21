@@ -28,5 +28,11 @@
     "nombre": "Juan López",
     "email": "juan.lopez@example.com",
     "password": "strongPass654"
+  },
+  {
+    "id": 1729477122376,
+    "name": "Kevin Lesch",
+    "email": "Easton50@hotmail.com",
+    "password": "6KYqnqjSrx_OkK_"
   }
 ]

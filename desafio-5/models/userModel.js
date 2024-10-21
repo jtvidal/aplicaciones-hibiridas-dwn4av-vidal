@@ -4,8 +4,12 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const usersFile = path.join(__dirname, "../data.users.json");
+const usersFile = path.join(__dirname, "../data/users.json");
 
+/**
+ * Reads ../data/users.json file, parses it and return users
+ * @returns {Array<Object>}
+ */
 export function readUsers() {
   try {
     const users = fs.readFileSync(usersFile, "utf-8");
@@ -19,6 +23,10 @@ export function readUsers() {
   }
 }
 
+/**
+ * writes users into ../data/users.json file
+ * @param {Array<Object>} data
+ */
 export function writeUsers(data) {
   try {
     fs.writeFileSync(usersFile, JSON.stringify(data), "utf-8");
