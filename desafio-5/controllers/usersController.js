@@ -1,6 +1,8 @@
 import { readUsers, writeUsers } from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 const users = readUsers();
 
 class UsersController {
@@ -88,6 +90,32 @@ class UsersController {
           res.status(204).send();
         } else {
           res.status(404).json({ error: "user not found" });
+        }
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async loginUser(req, res, next) {
+    try {
+      const { email, password } = req.body;
+      const user = users.find((u) => u.email === email);
+      if (!user) {
+        res.status(404).json({ error: "user not found" });
+      } else {
+        console.log("user in loginUser: ", user);
+
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) {
+          res.status(400).json({ error: "invalid password" });
+        } else {
+          const token = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.SECRET_KEY,
+            { expiresIn: "2h" }
+          );
+          res.status(200).json(token);
         }
       }
     } catch (error) {
