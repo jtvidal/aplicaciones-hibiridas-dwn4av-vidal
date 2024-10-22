@@ -108,7 +108,7 @@ class UsersController {
 
         const validPassword = await bcrypt.compare(password, user.password);
         if (!validPassword) {
-          res.status(400).json({ error: "invalid password" });
+          res.status(401).json({ error: "invalid password" });
         } else {
           const token = jwt.sign(
             { id: user.id, email: user.email },
