@@ -1,3 +1,13 @@
 use desafio-siete
 
 db.users.insertMany([{User*10}])
+
+db.users.find()
+
+db.users.find({edad:{$gt:30}},{email:1})
+
+db.users.find({$or:[{edad:{$gt:30}},{"direccion.ciudad":"Tenerife"}]})
+
+db.users.updateOne({apellido:"Molina"},{$set:{apellido:"Molinari"}})
+
+db.users.deleteMany({edad:{$lt:30}})
