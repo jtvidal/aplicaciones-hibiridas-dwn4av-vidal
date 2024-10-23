@@ -1,0 +1,3 @@
+use desafio-siete
+
+db.users.insertMany([{User*10}])
