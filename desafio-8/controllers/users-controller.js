@@ -5,7 +5,7 @@ class UsersController {
 
   async createUser(req, res, next) {
     try {
-      const newUser = new Users({...req.body});
+      const newUser = new Users({ ...req.body });
       console.log(newUser);
       const savedUser = await newUser.save();
       res.status(201).json(savedUser);
@@ -26,6 +26,12 @@ class UsersController {
       next(error);
     }
   }
+
+  // async getUserById(req, res, next) {
+  //   try {
+      
+  //   } catch (error) {}
+  // }
 }
 
 export default new UsersController();
