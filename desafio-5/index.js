@@ -3,7 +3,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import routerHandler from "./routes/routes.js";
-import { dbConnection } from "./config/db-config.js";
 
 dotenv.config();
 
@@ -22,5 +21,3 @@ app.listen(PORT, console.log(`http://localhost:${PORT}/api`));
 app.get("/api", (req, res, next) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
-dbConnection();
