@@ -1,22 +1,11 @@
 import Students from "../models/studentsModel.js";
+import { studentValidation } from "../validation/validations.js";
 
 class StudentsController {
   constructor() {}
-
-  async getStudents(req, res, next) {
-    try {
-      const students = await Students.find();
-      if (!students) {
-        res.status(404).json({ error: "Students not found" });
-      }
-      res.status(200).json(students);
-    } catch (error) {
-      res.status(400).json({ error: error.message });
-      next(error);
-    }
-  }
-
   async createStudent(req, res, next) {
+    const { error } = studentValidation(req.body);
+    if (error) return res.status(400).json({ error: error.message });
     try {
       const newStudent = new Students({ ...req.body });
       const savedStudent = await newStudent.save();
@@ -26,6 +15,18 @@ class StudentsController {
         res.status(201).json(savedStudent);
       }
     } catch (error) {
+      next(error);
+    }
+  }
+  async getStudents(req, res, next) {
+    try {
+      const students = await Students.find();
+      if (!students) {
+        res.status(404).json({ error: "Students not found" });
+      }
+      res.status(200).json(students);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
       next(error);
     }
   }

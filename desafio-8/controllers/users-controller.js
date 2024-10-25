@@ -1,9 +1,12 @@
 import Users from "../models/usersModels.js";
+import { usersValidation } from "../validation/validations.js";
 
 class UsersController {
   constructor() {}
 
   async createUser(req, res, next) {
+    const { error } = usersValidation(req.body);
+    if (error) return res.status(400).json({ error: error.message });
     try {
       const newUser = new Users({ ...req.body });
       console.log(newUser);
@@ -29,7 +32,7 @@ class UsersController {
 
   // async getUserById(req, res, next) {
   //   try {
-      
+
   //   } catch (error) {}
   // }
 }
