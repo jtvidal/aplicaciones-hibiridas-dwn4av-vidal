@@ -44,6 +44,42 @@ class StudentsController {
       next(error);
     }
   }
+
+  async updateStudent(req, res, next) {
+    try {
+      const studentId = req.params.id;
+      const data = req.body;
+      const updatedStudent = await Students.findOneAndUpdate(
+        { _id: studentId },
+        data,
+        { new: true }
+      );
+      if (!updatedStudent) {
+        res.status(404).json({ error: "Studen could not be updated" });
+      }
+      res.status(200).json(updatedStudent);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+      next(error);
+    }
+  }
+
+  async deleteStudent(req, res, next) {
+    try {
+      const studentId = req.params.id;
+      const deletedStudent = await Students.findOneAndDelete(
+        { _id: studentId },
+        { includeResultMetadata: true }
+      );
+      if (!deletedStudent) {
+        res.status(404).json({ error: "Student could not be deleted" });
+      }
+      res.status(200).json({ deleted: deletedStudent });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+      next(error);
+    }
+  }
 }
 
 export default new StudentsController();
