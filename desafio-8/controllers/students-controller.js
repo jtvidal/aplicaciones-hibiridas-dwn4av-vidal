@@ -80,6 +80,8 @@ class StudentsController {
       next(error);
     }
   }
+
+  
 }
 
 export default new StudentsController();

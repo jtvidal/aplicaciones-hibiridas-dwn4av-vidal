@@ -1,4 +1,6 @@
 import Courses from "../models/coursesModel.js";
+import Students from "../models/studentsModel.js";
+import Suscription from "../models/suscriptionModel.js";
 import { courseValidation } from "../validation/validations.js";
 
 class CoursesController {
@@ -58,6 +60,40 @@ class CoursesController {
       res.status(204).end();
     } catch (error) {
       res.status(400).json({ error: error.message });
+      next(error);
+    }
+  }
+
+  //SUSCRIPTION
+  async suscription(req, res, next) {
+    try {
+      const courseId = req.params.id;
+      const suscriberId = req.query.suscriber;
+      const suscription = await new Suscription({
+        courseId,
+        suscriberId,
+      }).save();
+      const student = await Students.findById(suscriberId);
+      const course = await Courses.findById(courseId);
+      if (!course && !student) {
+        res.status(404).json({ error: "Could not Suscribe to course" });
+      }
+      course.students.push(suscription);
+      student.courses.push(suscription);
+
+      const updatedCourse = await Courses.findByIdAndUpdate(courseId, course, {
+        new: true,
+      });
+      const updatedStudent = await Students.findByIdAndUpdate(
+        suscriberId,
+        student,
+        {
+          new: true,
+        }
+      );
+      res.status(200).json({ course: updatedCourse, student: updatedStudent });
+    } catch (error) {
+      res.status(400).json({ error: error });
       next(error);
     }
   }
