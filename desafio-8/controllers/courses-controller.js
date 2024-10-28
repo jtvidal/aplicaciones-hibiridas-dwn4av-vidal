@@ -30,6 +30,37 @@ class CoursesController {
       next(error);
     }
   }
+
+  async updateCourse(req, res, next) {
+    try {
+      const data = req.body;
+      const courseId = req.params.id;
+      const course = await Courses.findByIdAndUpdate(courseId, data, {
+        new: true,
+      });
+      if (!course) {
+        res.status(404).json({ error: "Could not update course" });
+      }
+      res.status(200).json({ course });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+      next(error);
+    }
+  }
+
+  async deleteCourse(req, res, next) {
+    try {
+      const courseId = req.params.id;
+      const course = await Courses.findByIdAndDelete(courseId, {
+        includeResultMetadata: true,
+      });
+      console.log("deleted course: ", course);
+      res.status(204).end();
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+      next(error);
+    }
+  }
 }
 
 export default new CoursesController();

@@ -5,5 +5,6 @@ const studentsRouter = express.Router();
 
 studentsRouter.get("/", studentsController.getStudents);
 studentsRouter.post("/", studentsController.createStudent);
+studentsRouter.get("/:id", studentsController.getStudentById);
 
 export default studentsRouter;
