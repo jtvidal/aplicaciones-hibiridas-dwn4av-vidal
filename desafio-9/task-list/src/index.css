@@ -1,0 +1,22 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: dashed 0.5px #232323;
+}
+body{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+header{
+  padding: 1rem;
+  text-align: center;
+}
+h1{
+  font-weight: 400;
+}
+main{
+  padding: 1rem;
+}
+footer{
+  text-align: center;
+}

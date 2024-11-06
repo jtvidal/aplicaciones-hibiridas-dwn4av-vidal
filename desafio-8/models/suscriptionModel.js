@@ -1,8 +1,16 @@
 import mongoose from "mongoose";
 
 const suscriptionSchema = new mongoose.Schema({
-  suscriberId: { type: String, required: true },
-  courseId: { type: String, required: true },
+  suscriberId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "students",
+    required: true,
+  },
+  courseId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "courses",
+    required: true,
+  },
 });
 
 export default mongoose.model("suscription", suscriptionSchema);
