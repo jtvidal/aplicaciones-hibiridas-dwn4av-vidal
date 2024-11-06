@@ -6,9 +6,9 @@ const TodoList = ({ list }) => {
   return (
     <div>
       <ul>
-        {list.map((item, index) => (
+        {/* {list.map((item, index) => (
           <TodoItem key={index} item={item} />
-        ))}
+        ))} */}
       </ul>
       <Button>
         Add Task
